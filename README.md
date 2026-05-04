@@ -152,12 +152,15 @@ To get it started now you need to download the monolithic StreamMii and your res
 ```
 ### 🤘 Why StreamMii-Monolithic?
 ```
-3x Times faster probing! (than monolithic v1 and cucu-labs version)
-When fails, now it fails with a clean error instead of crashing! (monolithic v1 and cucu-labs version were crashing on fail)
-New H.246 encoder for non standard pixel formats that will not ruin the playback! (monolithic v1 and cucu-labs version do not have this feature)
-Also its now more safe to run it, it won't delete itself or delete anything else or outside of it. (The monolithic v1 version and cucu-labs version may delete itself or files around it!)
-Bug fixes! (that were in monolithic v1 and cucu-labs version)
-Secure IMDB! (monolithic v1 and cucu-labs version did not have)
+The same StreamMii but now it is monolithic. What does that mean? Instead of downloading 6 files you download 1 file, which is easier to manage. INSTALLER IS NOT INCLUDED IN IT!
+To get it started now you need to download the monolithic StreamMii and your respective OS n00b installer, run the installler and then StreamMii-Monolithic.
+Changes:
+> 3x Times faster probing! (than monolithic v1 and cucu-labs version)
+> When fails, now it fails with a clean error instead of crashing! (monolithic v1 and cucu-labs version were crashing on fail)
+> New H.246 encoder for non standard pixel formats that will not ruin the playback! (monolithic v1 and cucu-labs version do not have this feature)
+> Also its now more safe to run it, it won't delete itself or delete anything else or outside of it. (The monolithic v1 version and cucu-labs version may delete itself or files around it!)
+> Bug fixes! (that were in monolithic v1 and cucu-labs version)
+> Secure IMDB! (monolithic v1 and cucu-labs version did not have)
 ```
 ### ⭐ FAQ:
 ```
