@@ -179,8 +179,12 @@ Fork: // unused
 > https://github.com/motan1337/StreamMii
 
 And also check out my other projects:
-> <a href="url">https://github.com/motan1337</a>
+> https://github.com/motan1337/
+
 > https://github.com/motan1337/Shitty-games
+
 > https://github.com/motan1337/4chan-shitty-clone-motan
+
 > https://github.com/motan1337/Templates-for-web-devs
+
 > https://dev.motan-femboy.cc/
