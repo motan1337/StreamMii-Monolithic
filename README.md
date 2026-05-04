@@ -1,2 +1,185 @@
+---
+
 # StreamMii-Monolithic
-A simple tool that converts media into Wii compatible formats for smooth playback.
+
+**A simple tool that converts media into Wii compatible formats for smooth playback.**
+
+---
+
+## 🚀 Features:
+
+* **GPU Acceleration Support:**
+    * **AMD.**
+    * **NVIDIA** (NVENC).
+    * **Intel** (QSV).
+    * **CPU fallback** (not recommended due to lower quality & performance).
+* **Automatic media metadata handling.**
+---
+
+## 🛠️ Output Settings:
+
+| Parameters: | Configurations: |
+| :--- | :--- |
+| **Resolution:** | 640x360 or 640x480 depending on aspect ratio. |
+| **Scaling:** | Lanczos resampling. |
+| **Bitrate:** | 1000 kbps. |
+| **FPS:** | **Usually** matches source media. |
+
+---
+
+## 📁 Supported Media Types:
+
+* Movies.
+* TV Shows.
+* <details>
+  <summary>Adult Content. </summary>
+
+  Solo, Group, JAV.
+
+  </details>
+* Audio.
+* Documentaries.
+* K-Drama.
+* Anime.
+* <details>
+  <summary>Sports. </summary>
+
+  Team Sports > Football, Basketball, Volleyball, Rugby, Baseball, Softball, Handball.
+  
+  Combat Sports > Boxing, MMA, Wrestling, Karate.
+  
+  Winter Sports > Skiing, Snowboarding, Ice Skating, Bobsledding.
+  
+  Water Sports > Surfing, Rowing, Kayaking, Synchronized Swimming.
+  
+  Motor Sports > F1, MotoGP.
+  
+  Individual Sports > Athletics (Track and Field), Tennis, Golf, Pool, Swimming, Badminton, Table Tennis, Cycling, Gymnastics.
+  
+  Equestrian > Show Jumping, Dressage.
+  
+  Other > Cricket, Hockey.
+
+  </details>
+
+---
+
+## 💻 System Requirements:
+
+* `ffmpeg` must be installed and available in your system `PATH`.
+* `python` must be installed and available in your system `PATH`.
+
+### 🔨 Installing packages:
+
+```bash
+pip install guessit requests colorama
+```
+### 🔨 How to use the noob installer for Linux:
+```
+sudo chmod +x noob-install-by-motanu.sh
+./noob-install-by-motanu.sh
+Works and tested on Debian/Ubuntu/Mint, Fedora/RHEL/CentOS, Arch/Manjaro, openSUSE, Alpine.
+
+Or if you use arm...
+
+sudo chmod +x arm-noob-install-motan.sh
+./arm-noob-install-motan.sh
+
+AARCH64 should work fine on these:
+- Ubuntu (22.04 & 24.04).
+- Linux Mint (21 & 22 & 22.3).
+- Debian (11 & 12).
+- Raspberry Pi OS (Bookworm and Bullseye).
+- Arch linux.
+- Manjaro.
+- Fedora (38 & 39 & 40).
+- openSUSE (Leap & Tumbleweed).
+- Alpine 3.18+
+
+ARMV6 & ARMV7 should work fine on these:
+- Raspberry Pi OS (Bookworm and Bullseye).
+- Debian (11 & 12).
+
+❗ Partially working / limited: ❗
+- Fedora on armv7 (Fedora dropped 32-bit arm since F37).
+- Alpine on armv6 (build FFmpeg from source).
+- RHEL & CentOS (needs EPEL + RPM Fusion added manually).
+- Ubuntu 20.04 (python3-venv may need manual install).
+
+❌ !!!! NOT COMPATIBLE WITH Gentoo, NixOS, Void Linux, Slackware, Android (Termux) !!!! ❌
+❌ !!!! We will not provide support for issues you will encounter on aarch64 & armv6 & armv7 !!!! ❌
+```
+### 🔨 Windows:
+```
+Just run the executable either from release either from the repository.
+Or if you are feeling freaky you can use the batch file.
+
+Or if you use arm...
+❗ You are on your own but we will give you the sources you need. ❗
+❌ We can not help you with any issues that you will encounter. ❌
+
+ffmpeg: https://github.com/tordona/ffmpeg-win-arm64
+python: https://www.python.org/downloads/release/python-31313/
+```
+### 🔨 MacOS with Apple Silicon SoC:
+```
+❗ You are on your own but we will give you the sources you need. ❗
+❌ We can not help you with any issues that you will encounter. ❌
+
+There are multiple sources of ffmpeg for Apple Silicon, and each have their ups and downs, it's up to you to use the best one for you.
+1. https://github.com/Vargol/ffmpeg-apple-arm64-build?tab=readme-ov-file
+2. https://gitlab.com/martinr92/ffmpeg
+3. https://osxexperts.net/
+
+Now you will need Python:
+https://www.python.org/downloads/release/python-3144/
+
+❗❗❗❗ Note: We do not know how any of this will work with the new MacBook Neo, because it is slighty diffrent from their M SoC series, and we do not own one so we can not test ❗❗❗❗
+```
+
+### 🔨 MacOS with Intel CPU:
+```
+❗ You are on your own but we will give you the sources you need. ❗
+❌ We can not help you with any issues that you will encounter. ❌
+
+ffmpeg: https://evermeet.cx/ffmpeg/ffmpeg-123838-gb462674645.7z
+python: https://www.python.org/downloads/release/python-3144/
+
+❗❗❗❗ Note: Hackintosh not tested yet. ❗❗❗❗
+```
+### 💸 StreamMii-Monolithic
+```
+The same StreamMii but now it is monolithic. What does that mean? Instead of downloading 6 files you download 1 file, which is easier to manage. INSTALLER IS NOT INCLUDED IN IT!
+To get it started now you need to download the monolithic StreamMii and your respective OS n00b installer, run the installler and then StreamMii-Monolithic.
+```
+### 🤘 Why StreamMii-Monolithic?
+```
+3x Times faster probing! (than monolithic v1 and cucu-labs version)
+When fails, now it fails with a clean error instead of crashing! (monolithic v1 and cucu-labs version were crashing on fail)
+New H.246 encoder for non standard pixel formats that will not ruin the playback! (monolithic v1 and cucu-labs version do not have this feature)
+Also its now more safe to run it, it won't delete itself or delete anything else or outside of it. (The monolithic v1 version and cucu-labs version may delete itself or files around it!)
+Bug fixes! (that were in monolithic v1 and cucu-labs version)
+Secure IMDB! (monolithic v1 and cucu-labs version did not have)
+```
+### ⭐ FAQ:
+```
+Why is there two or more versions of monolithic StreamMii in the repo?
+> It's your fallback if the current version is unstable for you or does not work.
+> To see the changes from version to version.
+> And overall a backup of everything that i made.
+Why did you separate StreamMii that had normal and your version (monolithic)?
+> Better version controll.
+> Less clutter.
+> I will still upload the new versions of monolithic StreamMii in cucu-labs repo just for the convenience of users.
+> More controll over my work and to see what users like more and recieve diffrent feedback on both of the software.
+Original repo:
+> https://github.com/cucu-labs/StreamMii
+Fork: // unused
+> https://github.com/motan1337/StreamMii
+
+And also check out my other projects:
+> https://github.com/motan1337
+> https://github.com/motan1337/Shitty-games
+> https://github.com/motan1337/4chan-shitty-clone-motan
+> https://github.com/motan1337/Templates-for-web-devs
+> https://dev.motan-femboy.cc/
