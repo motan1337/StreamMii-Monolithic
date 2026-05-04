@@ -145,11 +145,6 @@ python: https://www.python.org/downloads/release/python-3144/
 
 ❗❗❗❗ Note: Hackintosh not tested yet. ❗❗❗❗
 ```
-### 💸 StreamMii-Monolithic
-```
-The same StreamMii but now it is monolithic. What does that mean? Instead of downloading 6 files you download 1 file, which is easier to manage. INSTALLER IS NOT INCLUDED IN IT!
-To get it started now you need to download the monolithic StreamMii and your respective OS n00b installer, run the installler and then StreamMii-Monolithic.
-```
 ### 🤘 Why StreamMii-Monolithic?
 ```
 The same StreamMii but now it is monolithic. What does that mean? Instead of downloading 6 files you download 1 file, which is easier to manage. INSTALLER IS NOT INCLUDED IN IT!
@@ -179,7 +174,7 @@ Fork: // unused
 > https://github.com/motan1337/StreamMii
 
 And also check out my other projects:
-> https://github.com/motan1337
+> <a href="url">https://github.com/motan1337</a>
 > https://github.com/motan1337/Shitty-games
 > https://github.com/motan1337/4chan-shitty-clone-motan
 > https://github.com/motan1337/Templates-for-web-devs
