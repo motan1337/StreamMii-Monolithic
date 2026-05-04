@@ -162,14 +162,19 @@ Changes:
 Why is there two or more versions of monolithic StreamMii in the repo?
 
 > It's your fallback if the current version is unstable for you or does not work.
+
 > To see the changes from version to version.
+
 > And overall a backup of everything that i made.
 
 Why did you separate StreamMii that had normal and your version (monolithic)?
 
 > Better version controll.
+
 > Less clutter.
+
 > I will still upload the new versions of monolithic StreamMii in cucu-labs repo just for the convenience of users.
+
 > More controll over my work and to see what users like more and recieve diffrent feedback on both of the software.
 
 Original repo:
