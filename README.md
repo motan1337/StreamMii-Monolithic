@@ -167,7 +167,7 @@ Why is there two or more versions of monolithic StreamMii in the repo?
 
 > And overall a backup of everything that i made.
 
-Why did you separate StreamMii that had normal and your version (monolithic)?
+Why did you separate StreamMii that had the classic and your version (monolithic)?
 
 > Better version controll.
 
