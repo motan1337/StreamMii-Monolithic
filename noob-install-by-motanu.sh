@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-#  If not runned as root ask for root 
+#  If not runned as root ask for root
 if [[ $EUID -ne 0 ]]; then
     echo "[!] Requesting root privileges..."
     exec sudo bash "$0" "$@"
 fi
+
+# resolve where this installer lives so we can find the pinned
+# hash verified requirements.txt shipped next to it
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REQ_FILE="$SCRIPT_DIR/requirements.txt"
 
 #  Detecting pkg mng
 detect_pkg_manager() {
@@ -44,7 +49,7 @@ pkg_install() {
     esac
 }
 
-#  Updating and installing python
+#  updating and installing python
 echo
 echo "[!] Updating package lists..."
 pkg_update
@@ -58,7 +63,7 @@ case "$PKG_MGR" in
     apk)     pkg_install python3 py3-pip ;;
 esac
 
-# Resolves python binary name varies by distros
+# resolves python binary name varies by distros
 if   command -v python3 &>/dev/null; then PYTHON_EXE=python3
 elif command -v python  &>/dev/null; then PYTHON_EXE=python
 else
@@ -78,13 +83,22 @@ PIP_EXE="$VENV_DIR/bin/pip"
 echo "[!] Upgrading pip inside venv..."
 $PIP_EXE install --upgrade pip
 
+# install pinned + hash verified dependencies instead of
+# loose ">=" floors  with a hashed requirements.txt pip refuses anything whose
+# hash doesn match  this closes the dependency substitution / typosquat hole
 echo "[!] Installing Python packages..."
-$PIP_EXE install \
-    "requests>=2.31.0" \
-    "guessit>=3.2.0"   \
-    "colorama>=0.4.6"
+if [[ -f "$REQ_FILE" ]]; then
+    echo "[!] Using hash-verified requirements: $REQ_FILE"
+    $PIP_EXE install --require-hashes -r "$REQ_FILE"
+else
+    echo "[!] requirements.txt not found next to installer; falling back to pinned versions."
+    $PIP_EXE install \
+        "requests==2.34.2" \
+        "guessit==3.8.0"   \
+        "colorama==0.4.6"
+fi
 
-#  Install ffmpeg 
+#  install ffmpeg
 echo
 echo "[!] Installing FFmpeg..."
 case "$PKG_MGR" in
@@ -102,6 +116,15 @@ case "$PKG_MGR" in
     zypper) pkg_install ffmpeg ;;
     apk)    pkg_install ffmpeg ;;
 esac
+
+#  the rpm fusion step above is best-effort (|| true) so a
+# silent failure there must not slip through verify ffmpeg actually landed
+if ! command -v ffmpeg &>/dev/null; then
+    echo
+    echo "[X] FFmpeg not found after install. Please install it manually:"
+    echo "    https://ffmpeg.org/download.html"
+    exit 1
+fi
 
 echo
 echo "════════════════ VERIFICATION ════════════════"
