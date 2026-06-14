@@ -6,6 +6,10 @@ if [[ $EUID -ne 0 ]]; then
     exec sudo bash "$0" "$@"
 fi
 
+# hash verified requirements.txt 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REQ_FILE="$SCRIPT_DIR/requirements.txt"
+
 #  detecting your architecture
 ARCH=$(uname -m)
 echo "[!] Detected architecture: $ARCH"
@@ -98,21 +102,33 @@ PIP_EXE="$VENV_DIR/bin/pip"
 echo "[!] Upgrading pip inside venv..."
 $PIP_EXE install --upgrade pip
 
+# falls back to exact pins if requirements.txt is missing
 echo "[!] Installing Python packages..."
-$PIP_EXE install \
-    "requests>=2.31.0" \
-    "guessit>=3.2.0"   \
-    "colorama>=0.4.6"
+if [[ -f "$REQ_FILE" ]]; then
+    echo "[!] Using hash-verified requirements: $REQ_FILE"
+    $PIP_EXE install --require-hashes -r "$REQ_FILE"
+else
+    echo "[!] requirements.txt not found next to installer; falling back to pinned versions."
+    $PIP_EXE install \
+        "requests==2.34.2" \
+        "guessit==3.8.0"   \
+        "colorama==0.4.6"
+fi
 
-#  installing your mother sorry ffmpeg 
+#  installing your mother sorry ffmpeg
 echo
 echo "[!] Installing FFmpeg..."
 
 install_ffmpeg_apt() {
     if [[ "$ARCH" == armv6* ]]; then
-        echo "[!] armv6 detected — enabling Raspbian contrib repo..."
-        grep -q "contrib" /etc/apt/sources.list 2>/dev/null || \
-            sed -i 's/main/main contrib non-free/g' /etc/apt/sources.list || true
+        echo "[!] armv6 detected — enabling Raspbian contrib/non-free repo..."
+        # the old 's/main/main contrib non-free/g' rewrote EVERY line
+        # containing "main" (incl. URLs/comments) and could corrupt sources.list.
+        # only append to actual Raspbian "deb" lines that dont already have it,
+        # making this both targeted and idempotent
+        if [[ -f /etc/apt/sources.list ]]; then
+            sed -i '/^deb .*raspbian/ { /contrib/! s/$/ contrib non-free/ }' /etc/apt/sources.list
+        fi
         pkg_update
     fi
     pkg_install ffmpeg
