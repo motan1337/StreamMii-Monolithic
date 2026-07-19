@@ -271,12 +271,13 @@ Fork: // unused
 > https://github.com/motan1337/StreamMii
 
 And also check out my other projects:
-> https://github.com/motan1337/
+
+> https://github.com/motan1337/clipctl.py
+
+> https://dev.motan-femboy.cc/
 
 > https://github.com/motan1337/Shitty-games
 
 > https://github.com/motan1337/4chan-shitty-clone-motan
 
 > https://github.com/motan1337/Templates-for-web-devs
-
-> https://dev.motan-femboy.cc/
