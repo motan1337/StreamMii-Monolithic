@@ -264,13 +264,13 @@ Why did you separate StreamMii that had the classic and your version (monolithic
 
 > More controll over my work and to see what users like more and recieve diffrent feedback on both of the software.
 
-Original repo:
+## Original repo:
 > https://github.com/cucu-labs/StreamMii
 
-Fork: // unused
+## Fork: // unused
 > https://github.com/motan1337/StreamMii
 
-And also check out my other projects:
+## And also check out my other projects:
 
 > https://github.com/motan1337/clipctl.py
 
