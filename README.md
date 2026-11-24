@@ -432,6 +432,7 @@ Several ffmpeg sources exist, each with tradeoffs pick what suits you:
 1. https://github.com/Vargol/ffmpeg-apple-arm64-build
 2. https://gitlab.com/martinr92/ffmpeg
 3. https://osxexperts.net/
+4. https://brew.sh/ | Install homebrew and than in the same terminal or another type `brew install ffmpeg` and accept whatever the fuck it asks you... This is my personal pick for apple silicon ffmpeg, that I personally use.
 
 Python: https://www.python.org/downloads/release/python-3144/
 
